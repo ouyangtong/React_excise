@@ -9,37 +9,10 @@ import {
   Button,
   Checkbox
 } from 'antd';
-const FormItem = Form.Item;
-const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.MenuItemGroup;
 
 export default class PCFooter extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      current: 'top',
-      modalVisible: false,
-      adtion: 'login',
-      hasLogined: false,
-      userNickName: '',
-      userid: 0
-    };
-  }
 
   render() {
-    let {getFieldProps} = this.props.form;
-    const userShow = this,state.hasLogined
-    ?
-    <Menu.Item key="logout" className="register">
-      <Button type="primary" htmlType="button">{this.state.userNickName}</Button>
-      &nbsp;&nbsp;
-      <Link target="_blank">
-        <Button type="dashed" htmlType="button">个人中心</Button>
-      </Link>
-      &nbsp;&nbsp;
-      <Button type="ghost" htmlType="">退出</Button>
-    </Menu.Item>
-    :
     return(
       <footer>
       <Row>
