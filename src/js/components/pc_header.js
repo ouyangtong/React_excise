@@ -1,6 +1,6 @@
 import React from 'react';
 import {Row, Col} from 'antd';
-import {Router, Route, Link, browserHistory} from 'react-router'
+import {BrowserRouter as Router, Route, Link, browserHistory} from 'react-router-dom'
 import {
     Menu,
     Icon,
@@ -85,9 +85,11 @@ class PCHeader extends React.Component {
             ? <Menu.Item key="logout" class="register">
                     <Button type="primary" htmlType="button">{this.state.userNickName}</Button>
                     &nbsp;&nbsp;
-                    <Link target="_blank">
+                    <Router>
+                    <Link to='/self'>
                         <Button type="dashed" htmlType="button">个人中心</Button>
                     </Link>
+                    </Router>
                     &nbsp;&nbsp;
                     <Button type="ghost" htmlType="button">退出</Button>
                 </Menu.Item>
