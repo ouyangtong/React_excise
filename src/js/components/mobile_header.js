@@ -1,5 +1,6 @@
 import React from 'react';
 import {Row, Col} from 'antd';
+import {BrowserRouter as Router, Route, Link, browserHistory} from 'react-router-dom';
 import {
     Menu,
     Icon,
@@ -58,20 +59,33 @@ class MobileHeader extends React.Component {
             .then(json => {
                 this.setState({userNickName: json.NickUserName, userid: json.UserId});
             });
+        if (this.state.action == "login") {
+            this.setState({hasLogined: true});
+        }
         message.success("请求成功");
         this.setModalVisible(false);
     };
 
-    login() {s
+    login() {
         this.setModalVisible(true);
+    };
+
+    callback(key) {
+        if (key == 1) {
+            this.setState({action: 'login'});
+        } else if (key == 2) {
+            this.setState({action: 'register'})
+        }
     };
 
     render() {
         let {getFieldProps} = this.props.form;
         const userShow = this.state.hasLogined
-            ? <Link>
-                    <Icon type="inbox"/>
-                </Link>
+            ? <Router>
+                    <Link to="/">
+                        <Icon type="inbox"/>
+                    </Link>
+              </Router>
             : <Icon
                 type="setting"
                 onClick={this
@@ -94,7 +108,26 @@ class MobileHeader extends React.Component {
                     {()=>this.setModalVisible(false)}
                     cancelText="取消"
                     okText="关闭">
-                    <Tabs type="card">
+                    <Tabs
+                        type="card"
+                        onChange={this
+                        .callback
+                        .bind(this)}>
+                        <TabPane tab="登录" key="1">
+                            <Form
+                                horizontal
+                                onSubmit={this
+                                .handleSubmit
+                                .bind(this)}>
+                                <FormItem label="账户">
+                                    <Input placeholder="请输入您的账号" {...getFieldProps('userName')}/>
+                                </FormItem>
+                                <FormItem label="密码">
+                                    <Input type="password" placeholder="请输入您的密码" {...getFieldProps('password')}/>
+                                </FormItem>
+                                <Button type="primary" htmlType="submit">登录</Button>
+                            </Form>
+                        </TabPane>
                         <TabPane tab="注册" key="2">
                             <Form
                                 horizontal
@@ -123,5 +156,4 @@ class MobileHeader extends React.Component {
         );
     };
 }
-
 export default MobileHeader = Form.create({})(MobileHeader);
