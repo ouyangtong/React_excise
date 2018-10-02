@@ -1,20 +1,6 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Link, browserHistory} from 'react-router-dom'
-import {
-    Row,
-    Col,
-    Menu,
-    Icon,
-    Input,
-    Card,
-    Form,
-    message,
-    Tabs,
-    Button,
-    CheckBox,
-    Modal,
-    Carousel
-} from 'antd';
+import {Link} from 'react-router-dom'
+import {Card} from 'antd';
 
 export default class PCNewsBlock extends React.Component {
 
@@ -30,8 +16,8 @@ export default class PCNewsBlock extends React.Component {
             method: 'GET'
         };
         fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=" + this.props.type + "&count=" + this.props.count, myFetchOptions)
-        .then(response => response.json())
-        .then(json => this.setState({news:json}));
+            .then(response => response.json())
+            .then(json => this.setState({news: json}));
     };
 
     render() {
@@ -39,11 +25,9 @@ export default class PCNewsBlock extends React.Component {
         const newsList = news.length
             ? news.map((newsItem, index) => (
                 <li key={index}>
-                    <Router>
-                        <Link to={`details/${newsItem.uniquekey}`} target="_blank">
-                            {newsItem.title}
-                        </Link>
-                    </Router>
+                    <Link to={`details/${newsItem.uniquekey}`} target="_blank">
+                        {newsItem.title}
+                    </Link>
                 </li>
             ))
             : '没有加载到任何新闻';
@@ -51,7 +35,7 @@ export default class PCNewsBlock extends React.Component {
             <div className="topNewList">
                 <Card>
                     <ul>
-                      {newsList}
+                        {newsList}
                     </ul>
                 </Card>
             </div>

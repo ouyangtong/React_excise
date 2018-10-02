@@ -58,6 +58,8 @@ class MobileHeader extends React.Component {
             .then(response => response.json())
             .then(json => {
                 this.setState({userNickName: json.NickUserName, userid: json.UserId});
+                localStorage.userid = json.UserId;
+                localStorage.userNickName = json.NickUserName;
             });
         if (this.state.action == "login") {
             this.setState({hasLogined: true});
@@ -78,14 +80,18 @@ class MobileHeader extends React.Component {
         }
     };
 
+    logout(key) {
+        localStorage.userid = '';
+        localStorage.userName = '';
+        this.setState({hasLogined: false});
+    }
+
     render() {
         let {getFieldProps} = this.props.form;
         const userShow = this.state.hasLogined
-            ? <Router>
-                    <Link to="/">
-                        <Icon type="inbox"/>
-                    </Link>
-              </Router>
+            ? <Link to="/">
+                    <Icon type="inbox"/>
+                </Link>
             : <Icon
                 type="setting"
                 onClick={this
@@ -94,7 +100,7 @@ class MobileHeader extends React.Component {
         return (
             <div id="mobileheader">
                 <header>
-                    <img src="./src/images/logo.svg" alt="logo"/>
+                    <img src="/src/images/logo.svg" alt="logo"/>
                     <span>ReactNews</span>
                     {userShow}
                 </header>
@@ -106,7 +112,6 @@ class MobileHeader extends React.Component {
                     {()=> this.setModalVisible(false)}
                     onOk=
                     {()=>this.setModalVisible(false)}
-                    cancelText="取消"
                     okText="关闭">
                     <Tabs
                         type="card"
@@ -150,7 +155,6 @@ class MobileHeader extends React.Component {
                             </Form>
                         </TabPane>
                     </Tabs>
-
                 </Modal>
             </div>
         );

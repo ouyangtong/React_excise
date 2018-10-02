@@ -28,14 +28,15 @@ export default class MobileIndex extends React.Component {
         return (
             <div>
                 <MobileHeader></MobileHeader>
+                <div className="mobile_nav">
                 <Tabs>
                     <TabPane tab="头条" key="1">
                         <div className="carousel">
                             <Carousel {...settings}>
-                                <div><img src="./src/images/1.jpg" alt=""/></div>
-                                <div><img src="./src/images/2.jpg" alt=""/></div>
-                                <div><img src="./src/images/3.jpg" alt=""/></div>
-                                <div><img src="./src/images/4.jpg" alt=""/></div>
+                                <div><img src="/src/images/1.jpg" alt=""/></div>
+                                <div><img src="/src/images/2.jpg" alt=""/></div>
+                                <div><img src="/src/images/3.jpg" alt=""/></div>
+                                <div><img src="/src/images/4.jpg" alt=""/></div>
                             </Carousel>
                         </div>
                         <MobileList count={20} type="top"/>
@@ -53,6 +54,7 @@ export default class MobileIndex extends React.Component {
                         <MobileList count={20} type="yule"/>
                     </TabPane>
                 </Tabs>
+                </div>
                 <MobileFooter></MobileFooter>
             </div>
         );

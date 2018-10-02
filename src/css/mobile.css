@@ -1,5 +1,5 @@
 html {
-    font-size: 50px;
+    font-size: 125px;
 }
 
 #mobileheader {
@@ -13,11 +13,11 @@ html {
 }
 
 #mobileheader header img {
-    height: 50px;
+    height: 1rem;
 }
 
 #mobileheader header span {
-    font-size: 35px;
+    font-size: 0.5rem;
     vertical-align: top;
     padding-left: 5px;
     color: #2db7f5;
@@ -41,20 +41,55 @@ html {
 }
 
 #mobileDetailsContainer .title,
-.article-title .title {
+{
     font-size: 0.44rem !important;
-    line-height: 1.4em;
+    line-height: 0.5rem;
 }
 
 #mobileDetailsContainer .article-src-time {
     font-size: 0.3rem !important;
 }
 
-#mobileDetailsContainer .article-content .txt {
+#mobileDetailsContainer #content .txt {
     font-size: 0.36rem;
 }
 #mobileDetailsContainer .ant-row {
     margin-top: 20px;
+}
+
+#mobileDetailsContainer .article-title .title{
+    font-size: 0.5rem;
+    line-height: 0.6rem;
+}
+
+.ucmobileList .comment .ant-card-head-title{
+    font-size: 0.3rem;
+}
+
+.ucmobileList .comment .ant-card-extra{
+    font-size: 0.25rem;
+}
+
+.ucmobileList .comment .ant-card-body{
+    font-size: 0.25rem;
+}
+
+.ucmobileList .comment .ant-form label,
+.ucmobileList .comment .ant-form textarea,
+.ucmobileList .comment .ant-form button{
+    font-size: 0.3rem !important;
+}
+
+.ucmobileList .comment .ant-form button{
+    height: 70px;
+}
+.carousel img {
+    width: 100%;
+    height: 100%;
+}
+
+.mobile_nav .ant-tabs-nav-scroll {
+    font-size: 0.4rem;
 }
 
 .ucmobileList {
