@@ -1,5 +1,5 @@
 html {
-    font-size: 125px;
+    font-size: 125px !important;
 }
 
 #mobileheader {
@@ -21,6 +21,7 @@ html {
     vertical-align: top;
     padding-left: 5px;
     color: #2db7f5;
+    line-height: 2;
 }
 
 #mobileheader i {
@@ -39,9 +40,33 @@ html {
     height: 220px;
     width: 100%;
 }
+.mobile_nav .tloader{
+    font-size: 0.3rem !important;
+}
 
-#mobileDetailsContainer .title,
+.mobile_nav .tloader .tloader-loading{
+    font-size: 0.3rem !important;
+}
+
+/* .mobile-modal {
+    font-size: 0.3rem;
+}
+
+.mobile-modal .ant-modal-title,
+.mobile-modal .ant-modal-body,
+.mobile-modal .ant-modal-footer,
+.mobile-modal .ant-modal-body div,
+.mobile-modal .ant-modal-body span
 {
+    font-size: 0.3rem !important;
+    line-height: 1.5;
+} */
+
+#mobileFooter {
+    font-size: 0.3rem;
+}
+
+#mobileDetailsContainer .title {
     font-size: 0.44rem !important;
     line-height: 0.5rem;
 }
@@ -57,30 +82,34 @@ html {
     margin-top: 20px;
 }
 
-#mobileDetailsContainer .article-title .title{
+#mobileDetailsContainer .article-title .title {
     font-size: 0.5rem;
     line-height: 0.6rem;
 }
 
-.ucmobileList .comment .ant-card-head-title{
+.mobile_nav .carousel {
+    width: 100%;
+}
+
+.ucmobileList .comment .ant-card-head-title {
     font-size: 0.3rem;
 }
 
-.ucmobileList .comment .ant-card-extra{
+.ucmobileList .comment .ant-card-extra {
     font-size: 0.25rem;
 }
 
-.ucmobileList .comment .ant-card-body{
+.ucmobileList .comment .ant-card-body {
     font-size: 0.25rem;
 }
 
+.ucmobileList .comment .ant-form button,
 .ucmobileList .comment .ant-form label,
-.ucmobileList .comment .ant-form textarea,
-.ucmobileList .comment .ant-form button{
+.ucmobileList .comment .ant-form textarea {
     font-size: 0.3rem !important;
 }
 
-.ucmobileList .comment .ant-form button{
+.ucmobileList .comment .ant-form button {
     height: 70px;
 }
 .carousel img {
@@ -132,7 +161,7 @@ html {
 
 section {
     background: #f6f6f6;
-    width: 6.9rem;
+    /* width: 6.9rem; */
 }
 .m_separate {
     padding: 0.2rem 0.3rem;

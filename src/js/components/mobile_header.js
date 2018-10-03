@@ -53,7 +53,6 @@ class MobileHeader extends React.Component {
             .props
             .form
             .getFieldsValue();
-        console.log(formData);
         fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=" + this.state.action + "&username=" + formData.userName + "&password=" + formData.password + "&r_userName=" + formData.r_userName + "&r_password=" + formData.r_password + "&r_confirmPassword=" + formData.r_confirmPassword, myFetchOptions)
             .then(response => response.json())
             .then(json => {
@@ -89,7 +88,7 @@ class MobileHeader extends React.Component {
     render() {
         let {getFieldProps} = this.props.form;
         const userShow = this.state.hasLogined
-            ? <Link to="/">
+            ? <Link to={`/usercenter`}>
                     <Icon type="inbox"/>
                 </Link>
             : <Icon
@@ -105,14 +104,18 @@ class MobileHeader extends React.Component {
                     {userShow}
                 </header>
                 <Modal
+                    width={700}
                     title="用户中心"
                     wrapClassName="vertical-center-modal"
+                    className="mobile-modal"
                     visible={this.state.modalVisible}
                     onCancel=
                     {()=> this.setModalVisible(false)}
                     onOk=
                     {()=>this.setModalVisible(false)}
-                    okText="关闭">
+                    okText="关闭"
+
+                    >
                     <Tabs
                         type="card"
                         onChange={this
@@ -120,7 +123,7 @@ class MobileHeader extends React.Component {
                         .bind(this)}>
                         <TabPane tab="登录" key="1">
                             <Form
-                                horizontal
+                                layout="horizontal"
                                 onSubmit={this
                                 .handleSubmit
                                 .bind(this)}>
@@ -135,7 +138,7 @@ class MobileHeader extends React.Component {
                         </TabPane>
                         <TabPane tab="注册" key="2">
                             <Form
-                                horizontal
+                                layout="horizontal"
                                 onSubmit={this
                                 .handleSubmit
                                 .bind(this)}>
